@@ -11,6 +11,16 @@ class ProductsController {
     }
   }
 
+  async getProduct(req: Request, res: Response): Promise<any> {
+    try {
+      const {id} = req.params
+      const products = await ProductsViews.getProduct(id)
+      res.status(200).send(products)
+    } catch (error) {
+      res.status(400).send(error.message)
+    }
+  }
+
   async create(req: Request, res: Response): Promise<void> {
     try {
       const { name, quantity, price }: InputProduct = req.body

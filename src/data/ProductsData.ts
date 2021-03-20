@@ -15,6 +15,17 @@ class ProductsData extends DataBase {
     }
   }
 
+  async getProduct(id: string): Promise<Product[]> {
+    try {
+      const response = await DataBase.connection.raw(
+        `SELECT * FROM ${this.tableName} WHERE id="${id}";`
+      )
+      return response[0]
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message)
+    }
+  }
+
   async create(
     id: string,
     name: string,

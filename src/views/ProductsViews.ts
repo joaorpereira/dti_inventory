@@ -19,6 +19,22 @@ class ProductsViews {
     }
   }
 
+  async getProduct(id : string): Promise<Product[]> {
+    let message = 'Product not found'
+    let statusCode
+    try {
+      const product = await ProductsData.getProduct(id)
+
+      if (!product) {
+        statusCode = 400
+        throw new Error(message)
+      }
+      return product
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
   async create(name: string, quantity: number, price: number): Promise<string> {
     let message = 'Account balance not found'
     let statusCode
