@@ -1,6 +1,5 @@
 import DataBase from '../database/DataBase'
 import { Product } from '../models/ProductsModels'
-
 class ProductsData extends DataBase {
   private tableName: string = 'products'
 

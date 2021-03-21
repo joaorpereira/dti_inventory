@@ -1,7 +1,6 @@
 import ProductsData from '../data/ProductsData'
 import { Product } from '../models/ProductsModels'
 import HashManager from '../middlewares/generateID'
-
 class ProductsViews {
   async getProducts(): Promise<Product[]> {
     let message = 'Product list not found'

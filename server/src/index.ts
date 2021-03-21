@@ -3,7 +3,7 @@ import { AddressInfo } from 'net'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
-import productsRoutes from './routes/ProductsRoutes'
+import productsRoutes from './routes/productsRoutes'
 
 dotenv.config()
 
