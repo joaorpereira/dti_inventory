@@ -101,11 +101,11 @@ $ create database as dti_backend at MySQL
 ```bash
   client: 'mysql',
   connection: {
-    host: proccess.env.HOST,
+    host: process.env.HOST,
     port: 3306,
-    user: proccess.env.DB_NAME,
-    password: proccess.env.DB_PASSWORD,
-    database: proccess.env.DB_DATABASE,
+    user: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
   },
 ```
 ##### Create MySQL products table:
