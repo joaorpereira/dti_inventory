@@ -49,6 +49,8 @@
 
 The project **DTI Inventory** was made as a part of selection process and I used **React** and **Javascript** to develop frontend and **NodeJS** and **Typescript** to create backend. The database was made using **MySQL**.
 
+![](dti_inventory.gif)
+
 ---
 
 ### Technologies
