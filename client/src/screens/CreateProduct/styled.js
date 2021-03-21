@@ -17,3 +17,8 @@ export const Row = styled.div`
   width: 100%;
   padding: 0px 24px 0px 18px;
 `
+export const Divider = styled.div`
+  height: 1px;
+  margin-top: -5px;
+  background-color: lightgray;
+`

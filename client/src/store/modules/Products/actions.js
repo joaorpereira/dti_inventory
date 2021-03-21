@@ -27,9 +27,10 @@ export function requestRemoveProduct(id) {
   }
 }
 
-export function requestRemoveProductSuccess() {
+export function requestRemoveProductSuccess(id) {
   return {
     type: types.REQUEST_REMOVE_PRODUCT_SUCCESS,
+    payload: id
   }
 }
 

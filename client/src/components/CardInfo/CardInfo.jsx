@@ -14,17 +14,19 @@ const CardInfo = ({ id, name, price, quantity, onDelete, onUpdate }) => {
             <strong>Quantidade:</strong>
             {` ${quantity}`}
           </p>
+        </RowInfo>
+        <RowInfo>
           <p>
             <strong>Preço:</strong>
             {` R$ ${price}`}
           </p>
         </RowInfo>
-        <div>
+        <RowInfo>
           <Button onClick={() => onUpdate(id)} color='editar'>
             Editar
           </Button>
           <Button onClick={() => onDelete(id)}>Deletar</Button>
-        </div>
+        </RowInfo>
       </Row>
     </Card>
   )

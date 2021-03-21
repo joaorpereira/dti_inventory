@@ -7,9 +7,8 @@ export const Card = styled.div`
   justify-content: space-between;
   width: 97%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  height: 4.2rem;
   border-radius: 0.5rem;
-  padding: 0.6rem 1.8rem;
+  padding: 1.2rem 1.8rem;
   transition: all 0.3s;
   > p {
     font-weight: 500;
@@ -21,16 +20,15 @@ export const Card = styled.div`
     margin-bottom: 2rem;
   }
 `
-
 export const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 450px;
+  width: 500px;
 `
 export const RowInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 250px;
+  width: 300px;
 `

@@ -35,11 +35,11 @@ const Home = () => {
       </Row>
       <Box>
         {!loading ? (
-          products.map(item => (
+          products.map((item, index) => (
             <CardInfo
               onDelete={handleDelete}
               onUpdate={handleUpdate}
-              key={item.id}
+              key={index}
               id={item.id}
               name={item.name}
               price={item.price}

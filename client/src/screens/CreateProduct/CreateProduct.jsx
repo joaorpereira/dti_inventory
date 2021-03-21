@@ -3,9 +3,9 @@ import Form from '../../components/Form/Form'
 import { toast } from 'react-toastify'
 
 import Input from '../../components/Input/Input'
-import { Container, Row } from './styled'
+import { Container, Divider, Row } from './styled'
 import { requestCreateProduct } from '../../store/modules/Products/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 
 const CreateProduct = () => {
@@ -15,6 +15,8 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState('')
   const [price, setPrice] = useState('')
 
+  const { success } = useSelector(state => state.products)
+
   const handleForm = e => {
     e.preventDefault()
     if (!name && !quantity && !price) {
@@ -23,7 +25,9 @@ const CreateProduct = () => {
     const body = { name, quantity, price }
     if (body) {
       dispatch(requestCreateProduct(body))
-      history.push('/home')
+      if (success) {
+        history.push('/home')
+      }
     }
   }
 
@@ -40,6 +44,7 @@ const CreateProduct = () => {
           value={name}
           onChange={e => setName(e.target.value)}
         />
+        <Divider />
         <Input
           type={'number'}
           name={'quantity'}
@@ -47,6 +52,7 @@ const CreateProduct = () => {
           value={quantity}
           onChange={e => setQuantity(e.target.value)}
         />
+        <Divider />
         <Input
           type={'number'}
           name={'price'}
@@ -54,6 +60,7 @@ const CreateProduct = () => {
           value={price}
           onChange={e => setPrice(e.target.value)}
         />
+        <Divider />
       </Form>
     </Container>
   )

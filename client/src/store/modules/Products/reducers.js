@@ -7,7 +7,9 @@ const INITIAL_STATE = {
   success: false,
 }
 
-export function productsList(state = INITIAL_STATE, action) {
+export default function products(state = INITIAL_STATE, action) {
+  console.log(action.payload)
+  console.log(state.products)
   return produce(state, draft => {
     switch (action.type) {
       case types.REQUEST_PRODUCTS_LIST: {
@@ -26,22 +28,15 @@ export function productsList(state = INITIAL_STATE, action) {
         draft.products = []
         break
       }
-      default:
-    }
-  })
-}
-
-export function removeProduct(state = INITIAL_STATE, action) {
-  return produce(state, draft => {
-    switch (action.type) {
       case types.REQUEST_REMOVE_PRODUCT: {
         draft.loading = true
         break
       }
+
       case types.REQUEST_REMOVE_PRODUCT_SUCCESS: {
-        const product_id = action.payload.id
+        const product_id = action.payload
         const products = state.products
-        const newProducts = products.map(item => item.id !== product_id)
+        const newProducts = products.filter(item => item.id !== product_id)
         draft.loading = false
         draft.success = true
         draft.products = newProducts
@@ -53,24 +48,13 @@ export function removeProduct(state = INITIAL_STATE, action) {
         draft.products = []
         break
       }
-      default:
-    }
-  })
-}
-
-export function createProduct(state = INITIAL_STATE, action) {
-  return produce(state, draft => {
-    switch (action.type) {
       case types.REQUEST_CREATE_PRODUCT: {
         draft.loading = true
         break
       }
       case types.REQUEST_CREATE_PRODUCT_SUCCESS: {
-        const product = action.payload.product
-        const products = state.products
         draft.loading = false
         draft.success = true
-        draft.products = [...products, product]
         break
       }
       case types.REQUEST_CREATE_PRODUCT_FAIL: {
