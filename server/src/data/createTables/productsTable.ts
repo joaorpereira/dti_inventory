@@ -1,5 +1,4 @@
 import DataBase from '../../database/DataBase'
-
 class ProductsTable extends DataBase {
   async create(): Promise<void> {
     try {
@@ -8,7 +7,8 @@ class ProductsTable extends DataBase {
                   id VARCHAR(255) PRIMARY KEY,
                   name VARCHAR(255) NOT NULL,
                   quantity INT DEFAULT 0,                
-                  price FLOAT DEFAULT 0
+                  price FLOAT DEFAULT 0,
+                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
               );
           `)
       console.log('Products table created')
