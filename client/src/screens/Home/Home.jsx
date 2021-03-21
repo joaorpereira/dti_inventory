@@ -1,34 +1,41 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardInfo from '../../components/CardInfo/CardInfo'
+import { Button, Row } from './styled'
 
-import { requestProductsList } from '../../store/modules/Products/actions'
+import {
+  requestProductsList,
+  requestRemoveProduct,
+} from '../../store/modules/Products/actions'
 import { Container, Box } from './styled'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const { products, loading, success } = useSelector(state => state.products)
+  const { products, loading } = useSelector(state => state.products)
 
   useEffect(() => {
     dispatch(requestProductsList())
   }, [dispatch])
 
-  const handleDelete = async id => {
-    console.log(id)
+  const handleDelete = id => {
+    dispatch(requestRemoveProduct(id))
   }
 
-  const handleUpdate = async id => {
-    console.log(id)
-  }
+  const handleUpdate = async id => {}
   return (
     <Container>
-      <h1>Meu Estoque</h1>
+      <Row>
+        <h1>Meu Estoque</h1>
+        <Button color='cadastrar' onClick={() => null}>
+          Cadastrar
+        </Button>
+      </Row>
       <Box>
-        {products ? (
+        {!loading ? (
           products.map(item => (
             <CardInfo
-              onDelete={handleUpdate}
-              onUpdate={handleDelete}
+              onDelete={handleDelete}
+              onUpdate={handleUpdate}
               key={item.id}
               id={item.id}
               name={item.name}

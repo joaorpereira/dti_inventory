@@ -19,3 +19,25 @@ export function requestProductsListFail() {
     payload: {},
   }
 }
+
+export function requestRemoveProduct(id) {
+  console.log('action', id)
+  return {
+    type: types.REQUEST_REMOVE_PRODUCT,
+    payload: id,
+  }
+}
+
+export function requestRemoveProductSuccess() {
+  return {
+    type: types.REQUEST_REMOVE_PRODUCT_SUCCESS,
+    // payload: { products },
+  }
+}
+
+export function requestRemoveProductFail() {
+  return {
+    type: types.REQUEST_REMOVE_PRODUCT_FAIL,
+    // payload: {},
+  }
+}

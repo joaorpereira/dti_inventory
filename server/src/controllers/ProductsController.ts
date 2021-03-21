@@ -50,7 +50,6 @@ class ProductsController {
   async delete(req: Request, res: Response): Promise<any> {
     try {
       const { id } = req.params
-      console.log(id)
       const message = await ProductsViews.delete(id)
       res.status(201).send(message)
     } catch (error) {

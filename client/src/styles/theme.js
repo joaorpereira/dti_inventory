@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   colors: {
     info: '#17a2b8',
